@@ -1,0 +1,27 @@
+{
+  "name": "mi-schi/php-code-checker",
+  "description": "Execute the tests and check the php code",
+  "type": "library",
+  "require": {
+    "php": ">=5.6.0",
+    "phpunit/phpunit": "@stable",
+    "df/php-coverfish": "@stable",
+    "squizlabs/php_codesniffer": "@stable",
+    "phploc/phploc": "@stable",
+    "phpmd/phpmd" : "@stable",
+    "sebastian/phpcpd": "@stable",
+    "pdepend/pdepend" : "@stable",
+    "mi-schi/phpmd-symfony2": "@stable"
+  },
+  "config": {
+    "bin-dir": "bin",
+    "process-timeout": 300,
+    "use-include-path": false,
+    "preferred-install": "auto",
+    "discard-changes": true
+  },
+  "extra": {
+    "minimum-stability": "stable",
+    "prefer-stable": true
+  }
+}
