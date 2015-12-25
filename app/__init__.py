@@ -1,1 +1,1 @@
-__all__ = ['composer', 'configuration', 'initialization']
+__all__ = ['helper', 'composer', 'configuration', 'initialization', 'security_checker']

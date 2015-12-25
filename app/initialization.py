@@ -3,6 +3,7 @@ import os
 import shutil
 import composer
 import configuration
+import security_checker
 
 
 def run():
@@ -19,12 +20,14 @@ def run():
     configuration.add('check-dir', check_dir)
 
     composer.initialization()
+    security_checker.initialization()
     prepare_dir(check_dir)
 
 
 def update():
     composer.initialization()
     composer.update()
+    security_checker.update()
 
 
 def prepare_dir(path):

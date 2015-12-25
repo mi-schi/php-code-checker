@@ -1,10 +1,10 @@
 import os
 from app.configuration import get_value
+from app.helper import php
 
 
 def execute():
     print '--- lint ---'
-    php = get_value('php')
     project_dir = get_value('project-dir')
     exclude_dirs = get_value('exclude-dirs')
     forbidden_methods = get_value('forbidden-methods')
@@ -19,7 +19,9 @@ def execute():
         for file in files:
             if file.endswith(".php"):
                 php_file = os.path.join(root, file)
-                os.system(php+' -l '+php_file)
+                code = php(' -l '+php_file)
+                if code != 0:
+                    raise SystemExit('PHP lint found an error in the file '+php_file)
                 check_forbidden_methods(forbidden_methods, php_file)
 
 
