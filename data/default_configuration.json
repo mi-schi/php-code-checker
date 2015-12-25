@@ -2,14 +2,14 @@
   "extra": {
     "php-code-checker": {
       "php": "php",
-      "phpunit-xml": "phpunit.xml",
-      "phpunit-coverage": "true",
-      "coverfish-output-level": "1",
+      "scan-dir": "",
       "exclude-dirs": ["vendor", ".idea", ".git"],
       "forbidden-methods": ["var_dump(", "die(", "exit(", "print_r("],
-      "scan-dir": "",
-      "phpmd-xml": "phpmd.xml",
-      "phpcs-standard": "vendor/squizlabs/php_codesniffer/CodeSniffer/Standards/Generic"
+      "coverfish-output-level": "1",
+      "phpunit-xml": "phpunit.xml",
+      "phpunit-coverage": "true",
+      "phpcs-standard": "vendor/squizlabs/php_codesniffer/CodeSniffer/Standards/Generic",
+      "phpmd-xml": "phpmd.xml"
     }
   }
 }
