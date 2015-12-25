@@ -50,3 +50,21 @@ You can update all internal dependencies with ```python update.py path/to/php```
 
 The configuration is quite simple. Look in the [default_configuration.json](data/default_configuration.json) for inspiration.
 Add an extra node to the ```composer.json``` in your project and overwrite the default configuration if you want.
+
+## Jenkins integration
+
+There is a huge configuration to process all these reports on jenkins. First you have to install the following plugins:
+
+* [Checkstyle](https://wiki.jenkins-ci.org/display/JENKINS/Checkstyle+Plugin)
+* [Clover PHP](https://wiki.jenkins-ci.org/display/JENKINS/Clover+PHP+Plugin)
+* [Crap4J](https://wiki.jenkins-ci.org/display/JENKINS/Crap4J+Plugin)
+* [Plot](https://wiki.jenkins-ci.org/display/JENKINS/Plot+Plugin)
+* [PMD](https://wiki.jenkins-ci.org/display/JENKINS/PMD+Plugin)
+* [Sidebar-Link](https://wiki.jenkins-ci.org/display/JENKINS/Sidebar-Link+Plugin)
+* [Violations](https://wiki.jenkins-ci.org/display/JENKINS/Violations)
+* [xUnit](https://wiki.jenkins-ci.org/display/JENKINS/xUnit+Plugin)
+
+Also useful:
+* [Task Scanner](https://wiki.jenkins-ci.org/display/JENKINS/Task+Scanner+Plugin)
+
+Then, copy the [default-jenkins-config.xml](data/default-jenkins-config.xml) to ```/var/lib/jenkins/jobs/default-job/config.xml``` on your jenkins.
