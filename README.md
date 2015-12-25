@@ -67,4 +67,5 @@ There is a huge configuration to process all these reports on jenkins. First you
 Also useful:
 * [Task Scanner](https://wiki.jenkins-ci.org/display/JENKINS/Task+Scanner+Plugin)
 
-Then, copy the [default-jenkins-config.xml](data/default-jenkins-config.xml) to ```/var/lib/jenkins/jobs/default-job/config.xml``` on your jenkins.
+Then, create a new empty job called ```default-job```. Copy the [default-jenkins-config.xml](data/default-jenkins-config.xml) to ```/var/lib/jenkins/jobs/default-job/config.xml``` on your jenkins.
+That was it. Append the configuration and copy from this moment forth the ```default-job```.
