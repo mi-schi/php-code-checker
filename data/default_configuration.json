@@ -8,7 +8,8 @@
       "exclude-dirs": ["vendor", ".idea", ".git"],
       "forbidden-methods": ["var_dump(", "die(", "exit(", "print_r("],
       "scan-dir": "",
-      "phpmd-xml": "phpmd.xml"
+      "phpmd-xml": "phpmd.xml",
+      "phpcs-standard": "vendor/squizlabs/php_codesniffer/CodeSniffer/Standards/Generic"
     }
   }
 }

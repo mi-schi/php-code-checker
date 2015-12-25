@@ -10,6 +10,7 @@ lint.execute()
 coverfish.execute()
 phpunit.execute()
 
+phpcs.execute()
 phpcpd.execute()
 phpmd.execute()
 

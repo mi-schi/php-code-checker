@@ -1,1 +1,1 @@
-__all__ = ['phpunit', 'coverfish', 'lint', 'phpcpd', 'phpmd', 'security_checker']
+__all__ = ['phpunit', 'coverfish', 'lint', 'phpcs', 'phpcpd', 'phpmd', 'security_checker']

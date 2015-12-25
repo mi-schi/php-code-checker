@@ -7,6 +7,7 @@
     "phpunit/phpunit": "@stable",
     "df/php-coverfish": "@stable",
     "squizlabs/php_codesniffer": "@stable",
+    "move-elevator/symfony-coding-standard": "@stable",
     "phploc/phploc": "@stable",
     "phpmd/phpmd" : "@stable",
     "sebastian/phpcpd": "@stable",
