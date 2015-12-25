@@ -19,9 +19,9 @@ and create metrics with
 * [phpmetrics](https://github.com/Halleck45/PhpMetrics)
 * [pdepend](https://github.com/pdepend/pdepend)
 
-It is a better alternative to ant scripts on your jenkins. The python scripts are more flexible and they can also be used on your local dev machine.
+To use this scripts is a better alternative to ant configurations on your jenkins. The python scripts are more flexible and they can also be used on your local dev machine.
 You can simply define all settings in the ```composer.json``` in your project but you don't have to.
-The scripts also support multiple exclusion folders.
+The scripts also support multiple folders for exclusion.
 
 ## Installation
 
