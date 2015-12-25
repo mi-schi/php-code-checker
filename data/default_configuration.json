@@ -1,0 +1,13 @@
+{
+  "extra": {
+    "php-code-checker": {
+      "php": "php",
+      "phpunit-xml": "phpunit.xml",
+      "phpunit-coverage": "true",
+      "coverfish-output-level": "1",
+      "exclude-dirs": ["vendor", ".idea", ".git"],
+      "forbidden-methods": ["var_dump(", "die(", "exit(", "print_r("],
+      "scan-dir": ""
+    }
+  }
+}
