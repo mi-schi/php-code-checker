@@ -7,7 +7,11 @@ import downloader
 
 
 def run():
-    project_dir = os.getcwd()+'/'
+    try:
+        project_dir = configuration.get_value('project-dir')
+    except:
+        project_dir = os.getcwd()+'/'
+
     execution_dir = os.path.split(os.path.dirname(os.path.realpath(__file__)))[0]+'/'
 
     if len(sys.argv) == 2:
