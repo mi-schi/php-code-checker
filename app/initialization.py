@@ -7,8 +7,8 @@ import downloader
 
 
 def run():
-    project_dir = os.getcwd()
-    execution_dir = os.path.dirname(os.path.realpath(__file__))
+    project_dir = os.getcwd()+'/'
+    execution_dir = os.path.split(os.path.dirname(os.path.realpath(__file__)))[0]+'/'
 
     if len(sys.argv) == 2:
         project_dir = sys.argv[1]
