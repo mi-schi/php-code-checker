@@ -7,10 +7,17 @@ import downloader
 
 
 def run():
-    if len(sys.argv) != 2:
-        raise SystemExit('Set the path to the composer.json as argument.')
+    project_dir = os.getcwd()
+    execution_dir = os.path.dirname(os.path.realpath(__file__))
 
-    project_dir = sys.argv[1]
+    if len(sys.argv) == 2:
+        project_dir = sys.argv[1]
+
+    os.chdir(execution_dir)
+
+    print '>>> Execution dir: '+execution_dir
+    print '>>> Project dir: '+project_dir
+
     build_dir = project_dir+'build/'
 
     configuration.load(project_dir)
@@ -22,10 +29,14 @@ def run():
 
 
 def update():
-    if len(sys.argv) != 2:
-        raise SystemExit('Set the path to php as argument.')
+    php_bin = 'php'
 
-    configuration.add('php', sys.argv[1])
+    if len(sys.argv) == 2:
+        php_bin = sys.argv[1]
+
+    print '>>> PHP version is: '+php_bin
+
+    configuration.add('php', php_bin)
     composer.initialization()
     composer.update()
     downloader.update()

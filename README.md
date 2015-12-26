@@ -35,15 +35,17 @@ Via composer:
 
 ## Usage
 
-Use python to execute the scripts:
+Use python to execute the scripts in the project folder:
 
-    python all.py path/to/your/project/
-    python check.py path/to/your/project/
-    python metric.py path/to/your/project/
+    python all.py
+    python check.py
+    python metric.py
 
-The ```all.py``` script execute the ```check.py``` and ```metric.py``` script.
+The ```all.py``` script execute the ```check.py``` and ```metric.py``` script. You can set the first argument as project path:
 
-If your want to execute the tests with coverage apart to speed up your deployment, then use the ```python coverage.py path/to/your/project/``` script.
+    python all.py /path/to/your/project/
+
+If your want to execute the tests with coverage apart to speed up your deployment, then use the ```python coverage.py``` script.
 You can update all internal dependencies with ```python update.py path/to/php```.
 
 ## Configuration
