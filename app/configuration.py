@@ -9,8 +9,15 @@ def load(path):
     global config
     load_default()
     composer = path+'composer.json'
+
+    if not os.path.isfile(composer):
+        raise SystemExit('You have to define a composer.json in your project.')
+
     data = load_json(composer)
-    config = data['extra']['php-code-checker']
+
+    if 'extra' in data:
+        if 'php-code-checker' in data['extra']:
+            config = data['extra']['php-code-checker']
 
 
 def load_default():
