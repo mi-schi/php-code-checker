@@ -7,16 +7,8 @@ import downloader
 
 
 def run():
-    try:
-        project_dir = configuration.get_value('project-dir')
-    except:
-        project_dir = os.getcwd()+'/'
-
+    project_dir = get_project_dir()
     execution_dir = os.path.split(os.path.dirname(os.path.realpath(__file__)))[0]+'/'
-
-    if len(sys.argv) == 2:
-        project_dir = sys.argv[1]
-
     os.chdir(execution_dir)
 
     print '>>> Execution dir: '+execution_dir
@@ -44,6 +36,18 @@ def update():
     composer.initialization()
     composer.update()
     downloader.update()
+
+
+def get_project_dir():
+    try:
+        project_dir = configuration.get_value('project-dir')
+    except SystemExit:
+        if len(sys.argv) == 2:
+            project_dir = sys.argv[1]
+        else:
+            project_dir = os.getcwd()+'/'
+
+    return project_dir
 
 
 def prepare_dir(path):
