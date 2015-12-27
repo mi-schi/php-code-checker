@@ -4,6 +4,7 @@ from app.helper import php
 
 def execute():
     print '--- phploc ---'
+
     metric_dir = get_value('metric-dir')
     scan_dir = get_value('project-dir')+get_value('scan-dir')
     exclude_dirs = get_value('exclude-dirs')

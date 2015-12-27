@@ -4,6 +4,7 @@ from app.helper import php
 
 def execute():
     print '--- phpunit ---'
+
     check_dir = get_value('check-dir')
 
     if get_value('phpunit-coverage') == 'true':

@@ -5,8 +5,8 @@ from app.helper import php
 
 def execute():
     print '--- security-checker ---'
-    project_dir = get_value('project-dir')
-    composer_lock = project_dir+'composer.lock'
+
+    composer_lock = get_value('project-dir')+'composer.lock'
     status_code = urllib.urlopen('https://security.sensiolabs.org/check_lock').getcode()
 
     print '>>> Status Code: '+str(status_code)

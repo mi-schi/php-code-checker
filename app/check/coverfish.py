@@ -7,21 +7,24 @@ from app.helper import php
 def execute():
     print '--- coverfish ---'
 
-    project_dir = get_value('project-dir')
-    phpunit_xml = project_dir+get_value('phpunit-xml')
+    phpunit_xml = get_value('project-dir')+get_value('phpunit-xml')
     phpunit_xml_folder = os.path.dirname(phpunit_xml)
 
     root = xml.etree.ElementTree.parse(phpunit_xml).getroot()
     output_level = get_value('coverfish-output-level')
-    autoload = phpunit_xml_folder+'/'+root.get('bootstrap', False)
+    bootstrap = root.get('bootstrap', False)
 
-    if autoload is False:
+    if bootstrap is False:
         raise SystemExit('You have to define the bootstrap attribute in you phpunit.yml in the root node.')
+
+    autoload = phpunit_xml_folder+'/'+bootstrap
 
     for testsuites in root.findall('testsuites'):
         for testsuite in testsuites:
             for directory in testsuite:
                 scan_path = phpunit_xml_folder+'/'+directory.text
+                if not os.path.isdir(scan_path):
+                    raise SystemExit('Only directories are supported in the phpunit.xml in the testsuites.')
 
                 print '>>> coverfish scan path: '+scan_path
                 print '>>> coverfish autoload file: '+autoload

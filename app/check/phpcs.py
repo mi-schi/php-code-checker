@@ -1,13 +1,14 @@
 import os
 from app.configuration import get_value
-from app.helper import php
+from app.helper import php, get_dirs
 
 
 def execute():
     print '--- phpcs ---'
-    phpcs_standard = get_value('project-dir')+get_value('phpcs-standard')
+
+    dirs = get_dirs()
+    phpcs_standard = dirs['project']+get_value('phpcs-standard')
     check_dir = get_value('check-dir')
-    scan_dir = get_value('project-dir')+get_value('scan-dir')
 
     exclude_dirs = []
     for exclude_dir in get_value('exclude-dirs'):
@@ -19,10 +20,9 @@ def execute():
         phpcs_standard = os.getcwd()+'/vendor/move-elevator/symfony-coding-standard/Standards/Symfony2'
 
     print '>>> phpcs standard: '+phpcs_standard
-    print '>>> Scan dir: '+scan_dir
     print '>>> Excludes: '+excludes
 
-    code = php('bin/phpcs --standard='+phpcs_standard+' --extensions=php --report-checkstyle='+check_dir+'checkstyle.xml --ignore='+excludes+' '+scan_dir)
+    code = php('bin/phpcs --standard='+phpcs_standard+' --extensions=php --report-checkstyle='+check_dir+'checkstyle.xml --ignore='+excludes+' '+dirs['scan'])
 
     if code == 512:
         raise SystemExit('There was a error/exception while executing phpcs.')

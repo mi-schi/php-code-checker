@@ -1,18 +1,19 @@
 import os
 from app.configuration import get_value
-from app.helper import php
+from app.helper import php, get_dirs
 
 
 def execute():
     print '--- lint ---'
-    project_dir = get_value('project-dir')
+
+    dirs = get_dirs()
     exclude_dirs = get_value('exclude-dirs')
     forbidden_methods = get_value('forbidden-methods')
 
     print '>>> Excludes dirs: ',exclude_dirs
     print '>>> Forbidden methods: ',forbidden_methods
 
-    for root, dirs, files in os.walk(project_dir):
+    for root, dirs, files in os.walk(dirs['scan']):
         for exclude in exclude_dirs:
             if exclude in dirs:
                 dirs.remove(exclude)
