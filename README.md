@@ -19,9 +19,8 @@ and create metrics with
 * [phpmetrics](https://github.com/Halleck45/PhpMetrics)
 * [pdepend](https://github.com/pdepend/pdepend)
 
-To use this scripts is a better alternative to ant configurations on your jenkins. The python scripts are more flexible and they can also be used on your local dev machine.
-You can simply define all settings in the ```composer.json``` in your project but you don't have to.
-The scripts also support multiple folders for exclusion.
+
+This scripts is a better alternative to configure ant on your jenkins. The python scripts are more flexible and can also be used on your local dev machine. You can define all settings in the `composer.json` in your project, but you don't have to. The scripts also supports exclusion of multiple folders.
 
 ## Installation
 
@@ -41,17 +40,16 @@ Use python to execute the scripts in the project folder:
     python check.py
     python metric.py
 
-The ```all.py``` script execute the ```check.py``` and ```metric.py``` script. You can set the first argument as project path:
+The `all.py` script executes the `check.py` and `metric.py` script. You can set the first argument as project path:
 
     python all.py /path/to/your/project/
 
-If your want to execute the tests with coverage apart to speed up your deployment, then use the ```python coverage.py``` script.
+If you want to execute tests with coverage, regardless your configuration, then use the python coverage.py.
 You can update all internal dependencies with ```python update.py path/to/php```.
 
 ## Configuration
 
-The configuration is quite simple. Look in the [default_configuration.json](data/default_configuration.json) for inspiration.
-Add an extra node to the ```composer.json``` in your project and overwrite the default configuration if you want.
+The configuration is simple. Just look in the `default_configuration.json` for usage. Add an extra prperty to the `composer.json` in your project and overwrite the default configuration if you want.
 
 ## Jenkins integration
 
@@ -70,4 +68,4 @@ Also useful:
 * [Task Scanner](https://wiki.jenkins-ci.org/display/JENKINS/Task+Scanner+Plugin)
 
 Then, create a new empty job called ```default-job```. Copy the [default-jenkins-config.xml](data/default-jenkins-config.xml) to ```/var/lib/jenkins/jobs/default-job/config.xml``` on your jenkins.
-That was it. Append the configuration and copy from this moment forth the ```default-job```.
+That's it! Append the configuration and copy `default-job` from now on.
