@@ -49,7 +49,7 @@ You can update all internal dependencies with ```python update.py path/to/php```
 
 ## Configuration
 
-The configuration is simple. Just look in the `default_configuration.json` for usage. Add an extra prperty to the `composer.json` in your project and overwrite the default configuration if you want.
+The configuration is simple. Just look in the [default_configuration.json](data/default_configuration.json) for usage. Add an extra prperty to the `composer.json` in your project and overwrite the default configuration if you want.
 
 ## Jenkins integration
 
