@@ -21,6 +21,8 @@ and create metrics with
 
 
 This scripts is a better alternative to configure ant on your jenkins. The python scripts are more flexible and can also be used on your local dev machine. You can define all settings in the `composer.json` in your project, but you don't have to. The scripts also supports exclusion of multiple folders.
+
+
 The scripts are tested with `Python 2.6` and `Python 3.5`.
 
 ## Installation
@@ -37,16 +39,16 @@ Via composer:
 
 Use python to execute the scripts in the project folder:
 
-    python all.py
-    python check.py
-    python metric.py
+    checker.py all
+    checker.py check
+    checker.py metric
 
-The `all.py` script executes the `check.py` and `metric.py` script. You can set the first argument as project path:
+The `all` argument executes the `check` and `metric` argument. You can set the second argument as project path:
 
-    python all.py /path/to/your/project/
+    checker.py all /path/to/your/project
 
-If you want to execute tests with coverage, regardless your configuration, then use the python coverage.py.
-You can update all internal dependencies with ```python update.py path/to/php```.
+If you want to execute tests with coverage, regardless your configuration, then use the `checker.py coverage` argument.
+You can update all internal dependencies with `update.py path/to/php`.
 
 ## Configuration
 
@@ -54,7 +56,7 @@ The configuration is simple. Just look in the [default_configuration.json](data/
 
 ## Jenkins integration
 
-There is a huge configuration to process all these reports on jenkins. First you have to install the following plugins:
+There is a huge configuration to process all these reports on Jenkins. First you have to install the following plugins:
 
 * [Checkstyle](https://wiki.jenkins-ci.org/display/JENKINS/Checkstyle+Plugin)
 * [Clover PHP](https://wiki.jenkins-ci.org/display/JENKINS/Clover+PHP+Plugin)
@@ -68,5 +70,5 @@ There is a huge configuration to process all these reports on jenkins. First you
 Also useful:
 * [Task Scanner](https://wiki.jenkins-ci.org/display/JENKINS/Task+Scanner+Plugin)
 
-Then, create a new empty job called ```default-job```. Copy the [default-jenkins-config.xml](data/default-jenkins-config.xml) to ```/var/lib/jenkins/jobs/default-job/config.xml``` on your jenkins.
+Then, create a new empty job called ```default-job```. Copy the [default-jenkins-config.xml](data/default-jenkins-config.xml) to ```/var/lib/jenkins/jobs/default-job/config.xml``` on your Jenkins.
 That's it! Append the configuration and copy `default-job` from now on.

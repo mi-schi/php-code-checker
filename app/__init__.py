@@ -1,1 +1,1 @@
-__all__ = ['helper', 'composer', 'configuration', 'initialization', 'downloader']
+__all__ = ['helper', 'composer', 'configuration', 'initialization', 'downloader', 'wrapper']
