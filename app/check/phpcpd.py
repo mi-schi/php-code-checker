@@ -3,7 +3,7 @@ from app.helper import php, get_dirs
 
 
 def execute():
-    print '--- phpcpd ---'
+    print('--- phpcpd ---')
 
     dirs = get_dirs()
     check_dir = get_value('check-dir')
@@ -13,6 +13,6 @@ def execute():
     for exclude in exclude_dirs:
         excludes = excludes+' --exclude '+exclude
 
-    print '>>> Excludes: '+excludes
+    print('>>> Excludes: '+excludes)
 
     php('bin/phpcpd'+excludes+' --log-pmd '+check_dir+'pmd-cpd.xml '+dirs['scan'])

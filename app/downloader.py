@@ -1,5 +1,4 @@
 import os
-import urllib
 
 download_dict = {
     'bin/security-checker.phar': 'http://get.sensiolabs.org/security-checker.phar',
@@ -8,17 +7,23 @@ download_dict = {
 
 
 def initialization():
-    for file_bin, url in download_dict.iteritems():
+    for file_bin, url in download_dict.items():
         if not os.path.isfile(file_bin):
             download(file_bin, url)
 
 
 def download(file_bin, url):
-    print '>>> Download '+file_bin
-    urllib.urlretrieve(url, file_bin)
+    print('>>> Download '+file_bin)
+
+    try:
+        import urllib.request
+        urllib.request.urlretrieve(url, file_bin)
+    except ImportError:
+        import urllib
+        urllib.urlretrieve(url, file_bin)
 
 
 def update():
-    for file_bin, url in download_dict.iteritems():
+    for file_bin, url in download_dict.items():
         os.remove(file_bin)
         download(file_bin, url)

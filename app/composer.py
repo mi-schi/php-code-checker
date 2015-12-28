@@ -14,7 +14,7 @@ def download():
     php_bin = get_value('php')
     if not os.path.exists('bin'):
         os.makedirs('bin')
-    print '>>> Download composer'
+    print('>>> Download composer')
     os.system('curl -sS https://getcomposer.org/installer | '+php_bin+' -- --install-dir=bin --filename=composer')
 
 

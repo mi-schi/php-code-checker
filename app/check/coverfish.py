@@ -5,7 +5,7 @@ from app.helper import php
 
 
 def execute():
-    print '--- coverfish ---'
+    print('--- coverfish ---')
 
     phpunit_xml = get_value('project-dir')+get_value('phpunit-xml')
     phpunit_xml_folder = os.path.dirname(phpunit_xml)
@@ -26,8 +26,8 @@ def execute():
                 if not os.path.isdir(scan_path):
                     raise SystemExit('Only directories are supported in the phpunit.xml in the testsuites.')
 
-                print '>>> coverfish scan path: '+scan_path
-                print '>>> coverfish autoload file: '+autoload
+                print('>>> coverfish scan path: '+scan_path)
+                print('>>> coverfish autoload file: '+autoload)
 
                 code = php('bin/coverfish scan --raw-scan-path='+scan_path+' --raw-autoload-file='+autoload+' --output-level='+output_level+' --no-ansi')
 

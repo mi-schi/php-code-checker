@@ -4,7 +4,7 @@ from app.helper import php, get_dirs
 
 
 def execute():
-    print '--- phpcs ---'
+    print('--- phpcs ---')
 
     dirs = get_dirs()
     phpcs_standard = dirs['project']+get_value('phpcs-standard')
@@ -16,11 +16,11 @@ def execute():
     excludes = ','.join(exclude_dirs)
 
     if not os.path.isfile(phpcs_standard):
-        print '>>> No phpcs-standard found. Fallback is the default move-elevator/symfony-coding-standard:'
+        print('>>> No phpcs-standard found. Fallback is the default move-elevator/symfony-coding-standard:')
         phpcs_standard = os.getcwd()+'/vendor/move-elevator/symfony-coding-standard/Standards/Symfony2'
 
-    print '>>> phpcs standard: '+phpcs_standard
-    print '>>> Excludes: '+excludes
+    print('>>> phpcs standard: '+phpcs_standard)
+    print('>>> Excludes: '+excludes)
 
     code = php('bin/phpcs --standard='+phpcs_standard+' --extensions=php --report-checkstyle='+check_dir+'checkstyle.xml --ignore='+excludes+' '+dirs['scan'])
 
