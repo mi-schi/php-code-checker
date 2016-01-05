@@ -15,6 +15,9 @@ def execute():
         exclude_dirs.append(exclude_dir+'/*')
     excludes = ','.join(exclude_dirs)
 
+    if excludes != '':
+        excludes = '--ignore='+excludes
+
     if not os.path.isfile(phpcs_standard):
         print('>>> No phpcs-standard found. Fallback is the default move-elevator/symfony-coding-standard:')
         phpcs_standard = os.getcwd()+'/vendor/move-elevator/symfony-coding-standard/Standards/Symfony2'
@@ -22,7 +25,7 @@ def execute():
     print('>>> phpcs standard: '+phpcs_standard)
     print('>>> Excludes: '+excludes)
 
-    code = php('bin/phpcs --standard='+phpcs_standard+' --extensions=php --report-checkstyle='+check_dir+'checkstyle.xml --ignore='+excludes+' '+dirs['scan'])
+    code = php('bin/phpcs --standard='+phpcs_standard+' --extensions=php --report-checkstyle='+check_dir+'checkstyle.xml '+excludes+' '+dirs['scan'])
 
     if code == 512:
         raise SystemExit('There was a error/exception while executing phpcs.')

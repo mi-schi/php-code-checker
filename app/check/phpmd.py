@@ -11,6 +11,9 @@ def execute():
     check_dir = get_value('check-dir')
     excludes = ','.join(get_value('exclude-dirs'))
 
+    if excludes != '':
+        excludes = '--exclude '+excludes
+
     if not os.path.isfile(phpmd_xml):
         print('>>> No phpmd-xml found. Fallback is the default phpmd.xml:')
         phpmd_xml = os.getcwd()+'/data/phpmd.xml.dist'
@@ -18,7 +21,7 @@ def execute():
     print('>>> phpmd.xml: '+phpmd_xml)
     print('>>> Excludes: '+excludes)
 
-    code = php('bin/phpmd '+dirs['scan']+' xml '+phpmd_xml+' --reportfile '+check_dir+'pmd.xml  --exclude '+excludes)
+    code = php('bin/phpmd '+dirs['scan']+' xml '+phpmd_xml+' --reportfile '+check_dir+'pmd.xml '+excludes)
 
     if code == 1:
         raise SystemExit('There was a error/exception while executing phpmd.')
