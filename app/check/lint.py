@@ -28,5 +28,10 @@ def execute():
 
 def check_forbidden_methods(methods, file):
     for method in methods:
-        if method in open(file).read():
+        try:
+            content = open(file).read().decode('utf-8')
+        except AttributeError:
+            content = open(file, 'r', 1, 'utf-8').read()
+
+        if method in content:
             raise SystemExit('There is a forbidden method "'+method+'" in the file '+file)
