@@ -674,7 +674,7 @@
           <yaxis>Average Hierarchy Height</yaxis>
           <series>
             <hudson.plugins.plot.XMLSeries>
-              <file>app/build/metric/pdepend.xml</file>
+              <file>build/metric/pdepend.xml</file>
               <label></label>
               <fileType>xml</fileType>
               <xpathString>number(//metrics/@ahh)</xpathString>
@@ -697,7 +697,7 @@
           <yaxis>Average Number of Derived Classes</yaxis>
           <series>
             <hudson.plugins.plot.XMLSeries>
-              <file>app/build/metric/pdepend.xml</file>
+              <file>build/metric/pdepend.xml</file>
               <label></label>
               <fileType>xml</fileType>
               <xpathString>number(//metrics/@andc)</xpathString>
@@ -720,7 +720,7 @@
           <yaxis>Number of Method or Function Calls</yaxis>
           <series>
             <hudson.plugins.plot.XMLSeries>
-              <file>app/build/metric/pdepend.xml</file>
+              <file>build/metric/pdepend.xml</file>
               <label></label>
               <fileType>xml</fileType>
               <xpathString>number(//metrics/@calls)</xpathString>
@@ -743,7 +743,7 @@
           <yaxis>Cyclomatic Complexity Number</yaxis>
           <series>
             <hudson.plugins.plot.XMLSeries>
-              <file>app/build/metric/pdepend.xml</file>
+              <file>build/metric/pdepend.xml</file>
               <label></label>
               <fileType>xml</fileType>
               <xpathString>number(//metrics/@ccn)</xpathString>
@@ -766,7 +766,7 @@
           <yaxis>Extended Cyclomatic Complexity Number</yaxis>
           <series>
             <hudson.plugins.plot.XMLSeries>
-              <file>app/build/metric/pdepend.xml</file>
+              <file>build/metric/pdepend.xml</file>
               <label></label>
               <fileType>xml</fileType>
               <xpathString>number(//metrics/@ccn2)</xpathString>
@@ -789,7 +789,7 @@
           <yaxis>Number of Abstract Classes</yaxis>
           <series>
             <hudson.plugins.plot.XMLSeries>
-              <file>app/build/metric/pdepend.xml</file>
+              <file>build/metric/pdepend.xml</file>
               <label></label>
               <fileType>xml</fileType>
               <xpathString>number(//metrics/@clsa)</xpathString>
@@ -812,7 +812,7 @@
           <yaxis>Number of Concrete Classes</yaxis>
           <series>
             <hudson.plugins.plot.XMLSeries>
-              <file>app/build/metric/pdepend.xml</file>
+              <file>build/metric/pdepend.xml</file>
               <label></label>
               <fileType>xml</fileType>
               <xpathString>number(//metrics/@clsc)</xpathString>
@@ -835,7 +835,7 @@
           <yaxis>Max Depth of Inheritance Tree</yaxis>
           <series>
             <hudson.plugins.plot.XMLSeries>
-              <file>app/build/metric/pdepend.xml</file>
+              <file>build/metric/pdepend.xml</file>
               <label></label>
               <fileType>xml</fileType>
               <xpathString>number(//metrics/@maxDIT)</xpathString>
@@ -858,7 +858,7 @@
           <yaxis>Number Of Classes</yaxis>
           <series>
             <hudson.plugins.plot.XMLSeries>
-              <file>app/build/metric/pdepend.xml</file>
+              <file>build/metric/pdepend.xml</file>
               <label></label>
               <fileType>xml</fileType>
               <xpathString>number(//metrics/@noc)</xpathString>
@@ -881,7 +881,7 @@
           <yaxis>Number Of Interfaces</yaxis>
           <series>
             <hudson.plugins.plot.XMLSeries>
-              <file>app/build/metric/pdepend.xml</file>
+              <file>build/metric/pdepend.xml</file>
               <label></label>
               <fileType>xml</fileType>
               <xpathString>number(//metrics/@noi)</xpathString>
@@ -904,7 +904,7 @@
           <yaxis>Number Of Methods</yaxis>
           <series>
             <hudson.plugins.plot.XMLSeries>
-              <file>app/build/metric/pdepend.xml</file>
+              <file>build/metric/pdepend.xml</file>
               <label></label>
               <fileType>xml</fileType>
               <xpathString>number(//metrics/@nom)</xpathString>
@@ -927,7 +927,7 @@
           <yaxis>Number of Packages</yaxis>
           <series>
             <hudson.plugins.plot.XMLSeries>
-              <file>app/build/metric/pdepend.xml</file>
+              <file>build/metric/pdepend.xml</file>
               <label></label>
               <fileType>xml</fileType>
               <xpathString>number(//metrics/@nop)</xpathString>
