@@ -3,6 +3,7 @@ import os
 
 config = {}
 default_config = {}
+extra_config = {}
 
 
 def load(path):
@@ -34,12 +35,14 @@ def load_json(path):
 
 
 def add(key, value):
-    global default_config
-    default_config.update({key: value})
+    global extra_config
+    extra_config.update({key: value})
 
 
 def get_value(key):
-    if key in config:
+    if key in extra_config:
+        return extra_config[key]
+    elif key in config:
         return config[key]
     elif key in default_config:
         return default_config[key]
