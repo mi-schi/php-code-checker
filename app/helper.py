@@ -17,18 +17,20 @@ def get_mode():
 
 
 def get_project_dir():
-    project_dir = os.getcwd()
+    project_dir = os.getcwd()+'/'
 
-    if len(sys.argv) == 3:
-        argument_dir = sys.argv[2]
-        if not argument_dir.startswith('/'):
-            project_dir = project_dir+argument_dir
-        project_dir = argument_dir
+    if len(sys.argv) < 3:
+        return project_dir
 
-    if not project_dir.endswith('/'):
-        project_dir = project_dir+'/'
+    argument_dir = sys.argv[2]
 
-    return project_dir
+    if not argument_dir.startswith('/'):
+        argument_dir = project_dir+argument_dir
+
+    if not argument_dir.endswith('/'):
+        argument_dir = argument_dir+'/'
+
+    return argument_dir
 
 
 def get_dirs():
