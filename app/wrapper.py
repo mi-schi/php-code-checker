@@ -4,14 +4,9 @@ from app.metric import *
 
 
 def check():
-    check_dir = configuration.get_value('build-dir')+'check/'
-    configuration.add('check-dir', check_dir)
-    initialization.prepare_dir(check_dir)
-
-    composer.project_installation()
+    prepare_check()
 
     lint.execute()
-
     coverfish.execute()
     phpunit.execute()
 
@@ -33,6 +28,15 @@ def metric():
 
 
 def coverage():
+    prepare_check()
     configuration.add('phpunit-coverage', 'true')
 
     phpunit.execute()
+
+
+def prepare_check():
+    check_dir = configuration.get_value('build-dir')+'check/'
+    configuration.add('check-dir', check_dir)
+    initialization.prepare_dir(check_dir)
+
+    composer.project_installation()
