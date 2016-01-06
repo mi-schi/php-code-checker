@@ -15,7 +15,7 @@ def execute():
     print('>>> Metric dir: '+metric_dir)
     print('>>> Excludes: '+excludes)
 
-    code = php('bin/phpmetrics.phar --extensions=php --report-xml='+metric_dir+'phpmetrics.xml --report-html='+metric_dir+'phpmetrics.html '+excludes+' '+scan_dir)
+    code = php('phpmetrics.phar', '--extensions=php --report-xml='+metric_dir+'phpmetrics.xml --report-html='+metric_dir+'phpmetrics.html '+excludes+' '+scan_dir)
 
     if code != 0:
         raise SystemExit('There was a error/exception while executing phpmetrics.')

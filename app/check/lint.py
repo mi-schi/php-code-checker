@@ -1,6 +1,6 @@
 import os
 from app.configuration import get_value
-from app.helper import php, get_dirs
+from app.helper import get_dirs
 
 
 def execute():
@@ -20,7 +20,7 @@ def execute():
         for file in files:
             if file.endswith(".php"):
                 php_file = os.path.join(root, file)
-                code = php(' -l '+php_file)
+                code = os.system(get_value('php')+' -l '+php_file)
                 if code != 0:
                     raise SystemExit('PHP lint found an error in the file '+php_file)
                 check_forbidden_methods(forbidden_methods, php_file)

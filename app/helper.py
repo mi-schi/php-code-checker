@@ -3,9 +3,17 @@ import sys
 from app.configuration import get_value
 
 
-def php(command, path='checker-dir'):
-    command = get_value('php')+' '+get_value(path)+command
+def php(command, arguments):
+    project_dir = get_value('project-dir')
+    bin_dir = get_value('bin-dir')
+    execution_command = get_full_dir(project_dir+bin_dir)+command
+
+    if not os.path.isfile(execution_command):
+        execution_command = get_value('checker-dir')+'bin/'+command
+
+    command = get_value('php')+' '+execution_command+' '+arguments
     print('>>> Execute command: '+command)
+
     return os.system(command)
 
 
@@ -27,10 +35,14 @@ def get_project_dir():
     if not argument_dir.startswith('/'):
         argument_dir = project_dir+argument_dir
 
-    if not argument_dir.endswith('/'):
-        argument_dir = argument_dir+'/'
+    return get_full_dir(argument_dir)
 
-    return argument_dir
+
+def get_full_dir(dir):
+    if not dir.endswith('/'):
+        dir = dir+'/'
+
+    return dir
 
 
 def get_dirs():

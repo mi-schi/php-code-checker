@@ -16,7 +16,7 @@ def execute():
     print('>>> Metric dir: '+metric_dir)
     print('>>> Excludes: '+excludes)
 
-    code = php('bin/phploc --count-tests --log-csv '+metric_dir+'phploc.csv --log-xml '+metric_dir+'phploc.xml '+excludes+' '+scan_dir)
+    code = php('phploc', '--count-tests --log-csv '+metric_dir+'phploc.csv --log-xml '+metric_dir+'phploc.xml '+excludes+' '+scan_dir)
 
     if code != 0:
         raise SystemExit('There was a error/exception while executing phploc.')

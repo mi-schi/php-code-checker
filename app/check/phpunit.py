@@ -6,29 +6,28 @@ def execute():
     print('--- phpunit ---')
 
     check_dir = get_value('check-dir')
-    command = test(check_dir)
+    argument = get_test_argument(check_dir)
 
     if get_value('phpunit-coverage') == 'true':
-        command = command+coverage(check_dir)
+        argument = argument+get_coverage_argument(check_dir)
 
-    code = php(command, 'project-dir')
+    code = php('phpunit', argument)
 
     if code != 0:
         raise SystemExit('Some tests failed.')
 
 
-def test(check_dir):
-    phpunit_bin = get_value('phpunit-bin')
+def get_test_argument(check_dir):
     phpunit_xml = get_value('project-dir')+get_value('phpunit-xml')
     phpunit_junit_xml = check_dir+'phpunit.xml'
 
     print('>>> phpunit.xml configuration: '+phpunit_xml)
     print('>>> JUnit phpunit.xml log: '+phpunit_xml)
 
-    return phpunit_bin+' --configuration '+phpunit_xml+' --debug --log-junit '+phpunit_junit_xml
+    return '--configuration '+phpunit_xml+' --debug --log-junit '+phpunit_junit_xml
 
 
-def coverage(check_dir):
+def get_coverage_argument(check_dir):
     base_dir = get_value('build-dir')
     print('>>> With coverage and crap index')
 

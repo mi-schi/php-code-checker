@@ -15,7 +15,7 @@ def execute():
     print('>>> Metric dir: '+metric_dir)
     print('>>> Excludes: '+excludes)
 
-    code = php('bin/pdepend --summary-xml='+metric_dir+'pdepend.xml --overview-pyramid='+metric_dir+'pdepend.svg --jdepend-chart='+metric_dir+'dependencies.svg '+excludes+' '+scan_dir)
+    code = php('pdepend', '--summary-xml='+metric_dir+'pdepend.xml --overview-pyramid='+metric_dir+'pdepend.svg --jdepend-chart='+metric_dir+'dependencies.svg '+excludes+' '+scan_dir)
 
     if code != 0:
         raise SystemExit('There was a error/exception while executing pdepend.')

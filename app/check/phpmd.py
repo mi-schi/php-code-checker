@@ -21,7 +21,7 @@ def execute():
     print('>>> phpmd.xml: '+phpmd_xml)
     print('>>> Excludes: '+excludes)
 
-    code = php('bin/phpmd '+dirs['scan']+' xml '+phpmd_xml+' --reportfile '+check_dir+'pmd.xml '+excludes)
+    code = php('phpmd', dirs['scan']+' xml '+phpmd_xml+' --reportfile '+check_dir+'pmd.xml '+excludes)
 
     if code == 1:
         raise SystemExit('There was a error/exception while executing phpmd.')

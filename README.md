@@ -46,6 +46,7 @@ Use python to execute the scripts in the project folder:
 The `all` argument executes the `check` and `metric` argument. You can set the second argument as project path:
 
     checker.py all /path/to/your/project
+    checker.py all relative/path
 
 If you want to execute tests with coverage, regardless your configuration, then use the `checker.py coverage` argument.
 You can update all internal dependencies with `update.py path/to/php`.
@@ -53,6 +54,8 @@ You can update all internal dependencies with `update.py path/to/php`.
 ## Configuration
 
 The configuration is simple. Just look in the [default_configuration.json](data/default_configuration.json) for usage. Add an extra property to the `composer.json` in your project and overwrite the default configuration if you want.
+The `php-code-checker` comes with its own dependencies for `phpunit`, `phpcs` and so on. If you want to use another `phpunit`, you can define the `bin-dir` property and add `phpunit` in your composer requirements.
+If `php-code-checker` find `path/to/your/project/bin/phpunit` then this binary will be used. Otherwise your tests were executed with the `phpunit` version which comes with `php-code-checker`.
 
 ## Jenkins integration
 

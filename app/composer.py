@@ -26,15 +26,15 @@ def update():
 
 
 def project_installation():
-    code = php('bin/composer install --optimize-autoloader')
+    code = php('composer', 'install --optimize-autoloader')
     if code != 0:
         raise SystemExit('The composer install command for the project failed with the code '+str(code))
 
 
-def composer(command):
+def composer(arguments):
     base_dir = os.getcwd()
     os.chdir(get_value('checker-dir'))
 
-    php('bin/composer '+command)
+    php('composer', arguments)
 
     os.chdir(base_dir)

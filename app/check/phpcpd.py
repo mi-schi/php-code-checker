@@ -15,4 +15,4 @@ def execute():
 
     print('>>> Excludes: '+excludes)
 
-    php('bin/phpcpd'+excludes+' --log-pmd '+check_dir+'pmd-cpd.xml '+dirs['scan'])
+    php('phpcpd', excludes+' --log-pmd '+check_dir+'pmd-cpd.xml '+dirs['scan'])

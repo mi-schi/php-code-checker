@@ -25,7 +25,7 @@ def execute():
     print('>>> phpcs standard: '+phpcs_standard)
     print('>>> Excludes: '+excludes)
 
-    code = php('bin/phpcs --standard='+phpcs_standard+' --extensions=php --report-checkstyle='+check_dir+'checkstyle.xml '+excludes+' '+dirs['scan'])
+    code = php('phpcs', '--standard='+phpcs_standard+' --extensions=php --report-checkstyle='+check_dir+'checkstyle.xml '+excludes+' '+dirs['scan'])
 
     if code == 512:
         raise SystemExit('There was a error/exception while executing phpcs.')

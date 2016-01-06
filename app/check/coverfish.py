@@ -29,7 +29,7 @@ def execute():
                 print('>>> coverfish scan path: '+scan_path)
                 print('>>> coverfish autoload file: '+autoload)
 
-                code = php('bin/coverfish scan --raw-scan-path='+scan_path+' --raw-autoload-file='+autoload+' --output-level='+output_level+' --no-ansi')
+                code = php('coverfish', 'scan --raw-scan-path='+scan_path+' --raw-autoload-file='+autoload+' --output-level='+output_level+' --no-ansi')
 
                 if code != 0:
                     raise SystemExit('The coverfish command failed with the code '+str(code))
