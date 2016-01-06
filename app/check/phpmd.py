@@ -16,7 +16,7 @@ def execute():
 
     if not os.path.isfile(phpmd_xml):
         print('>>> No phpmd-xml found. Fallback is the default phpmd.xml:')
-        phpmd_xml = os.getcwd()+'/data/phpmd.xml.dist'
+        phpmd_xml = get_value('checker-dir')+'data/phpmd.xml.dist'
 
     print('>>> phpmd.xml: '+phpmd_xml)
     print('>>> Excludes: '+excludes)

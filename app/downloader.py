@@ -1,4 +1,5 @@
 import os
+from app.configuration import get_value
 
 download_dict = {
     'bin/security-checker.phar': 'http://get.sensiolabs.org/security-checker.phar',
@@ -7,9 +8,12 @@ download_dict = {
 
 
 def initialization():
+    checker_dir = get_value('checker-dir')
+
     for file_bin, url in download_dict.items():
-        if not os.path.isfile(file_bin):
-            download(file_bin, url)
+        absolute_file_bin = checker_dir+file_bin
+        if not os.path.isfile(absolute_file_bin):
+            download(absolute_file_bin, url)
 
 
 def download(file_bin, url):

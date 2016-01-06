@@ -6,11 +6,12 @@ def execute():
     print('--- phpunit ---')
 
     check_dir = get_value('check-dir')
+    command = test(check_dir)
 
     if get_value('phpunit-coverage') == 'true':
-        code = php(test(check_dir)+coverage(check_dir))
-    else:
-        code = php(test(check_dir))
+        command = command+coverage(check_dir)
+
+    code = php(command, 'project-dir')
 
     if code != 0:
         raise SystemExit('Some tests failed.')

@@ -4,17 +4,19 @@ from app import composer, configuration, downloader
 
 
 def run(project_dir):
-    execution_dir = os.path.split(os.path.dirname(os.path.realpath(__file__)))[0]+'/'
-    os.chdir(execution_dir)
+    checker_dir = os.path.split(os.path.dirname(os.path.realpath(__file__)))[0]+'/'
 
-    print('>>> Execution dir: '+execution_dir)
+    print('>>> Checker dir: '+checker_dir)
     print('>>> Project dir: '+project_dir)
+
+    os.chdir(project_dir)
 
     build_dir = project_dir+'build/'
 
-    configuration.load(project_dir)
     configuration.add('project-dir', project_dir)
+    configuration.add('checker-dir', checker_dir)
     configuration.add('build-dir', build_dir)
+    configuration.load()
 
     composer.initialization()
     downloader.initialization()

@@ -4,18 +4,20 @@ from app.helper import php
 
 
 def initialization():
-    if not os.path.isfile('bin/composer'):
-        download()
-    if not os.path.isfile('bin/phpunit'):
+    checker_dir = get_value('checker-dir')
+
+    if not os.path.isfile(checker_dir+'bin/composer'):
+        download(checker_dir)
+    if not os.path.isfile(checker_dir+'bin/phpcs'):
         php('bin/composer install')
 
 
-def download():
+def download(checker_dir):
     php_bin = get_value('php')
-    if not os.path.exists('bin'):
-        os.makedirs('bin')
+    if not os.path.exists(checker_dir+'bin'):
+        os.makedirs(checker_dir+'bin')
     print('>>> Download composer')
-    os.system('curl -sS https://getcomposer.org/installer | '+php_bin+' -- --install-dir=bin --filename=composer')
+    os.system('curl -sS https://getcomposer.org/installer | '+php_bin+' -- --install-dir='+checker_dir+'bin --filename=composer')
 
 
 def update():
@@ -24,9 +26,6 @@ def update():
 
 
 def project_installation():
-    base_dir = os.getcwd()
-    os.chdir(get_value('project-dir'))
-    code = php(base_dir+'/bin/composer install --optimize-autoloader')
-    os.chdir(base_dir)
+    code = php('bin/composer install --optimize-autoloader')
     if code != 0:
         raise SystemExit('The composer install command for the project failed with the code '+str(code))

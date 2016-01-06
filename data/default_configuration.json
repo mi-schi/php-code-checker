@@ -6,6 +6,7 @@
       "exclude-dirs": ["vendor", ".idea", ".git"],
       "forbidden-methods": ["var_dump(", "die(", "exit(", "print_r("],
       "coverfish-output-level": "1",
+      "phpunit-bin": "vendor/bin/phpunit",
       "phpunit-xml": "phpunit.xml",
       "phpunit-coverage": "true",
       "phpcs-standard": "vendor/squizlabs/php_codesniffer/CodeSniffer/Standards/Generic",

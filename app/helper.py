@@ -3,10 +3,10 @@ import sys
 from app.configuration import get_value
 
 
-def php(command):
-    php_bin = get_value('php')
-    print('>>> Execute with php: '+php_bin)
-    return os.system(php_bin+' '+command)
+def php(command, path='checker-dir'):
+    command = get_value('php')+' '+get_value(path)+command
+    print('>>> Execute command: '+command)
+    return os.system(command)
 
 
 def get_mode():

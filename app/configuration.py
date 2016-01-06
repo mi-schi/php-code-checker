@@ -6,10 +6,10 @@ default_config = {}
 extra_config = {}
 
 
-def load(path):
+def load():
     global config
     load_default()
-    composer = path+'composer.json'
+    composer = get_value('project-dir')+'composer.json'
 
     if not os.path.isfile(composer):
         raise SystemExit('You have to define a composer.json in your project.')
@@ -23,7 +23,7 @@ def load(path):
 
 def load_default():
     global default_config
-    data = load_json('data/default_configuration.json')
+    data = load_json(get_value('checker-dir')+'data/default_configuration.json')
     default_config = data['extra']['php-code-checker']
 
 

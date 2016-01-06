@@ -20,7 +20,7 @@ def execute():
 
     if not os.path.isfile(phpcs_standard):
         print('>>> No phpcs-standard found. Fallback is the default move-elevator/symfony-coding-standard:')
-        phpcs_standard = os.getcwd()+'/vendor/move-elevator/symfony-coding-standard/Standards/Symfony2'
+        phpcs_standard = get_value('checker-dir')+'vendor/move-elevator/symfony-coding-standard/Standards/Symfony2'
 
     print('>>> phpcs standard: '+phpcs_standard)
     print('>>> Excludes: '+excludes)

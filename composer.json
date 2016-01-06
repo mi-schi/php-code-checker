@@ -4,7 +4,6 @@
   "type": "library",
   "require": {
     "php": ">=5.6.0",
-    "phpunit/phpunit": "@stable",
     "df/php-coverfish": "@stable",
     "squizlabs/php_codesniffer": "@stable",
     "move-elevator/symfony-coding-standard": "@stable",
