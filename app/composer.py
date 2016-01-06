@@ -9,7 +9,7 @@ def initialization():
     if not os.path.isfile(checker_dir+'bin/composer'):
         download(checker_dir)
     if not os.path.isfile(checker_dir+'bin/phpcs'):
-        php('bin/composer install')
+        composer('install')
 
 
 def download(checker_dir):
@@ -21,11 +21,20 @@ def download(checker_dir):
 
 
 def update():
-    php('bin/composer self-update')
-    php('bin/composer update')
+    composer('self-update')
+    composer('update')
 
 
 def project_installation():
     code = php('bin/composer install --optimize-autoloader')
     if code != 0:
         raise SystemExit('The composer install command for the project failed with the code '+str(code))
+
+
+def composer(command):
+    base_dir = os.getcwd()
+    os.chdir(get_value('checker-dir'))
+
+    php('bin/composer '+command)
+
+    os.chdir(base_dir)
