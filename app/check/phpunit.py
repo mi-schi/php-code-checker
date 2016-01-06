@@ -18,13 +18,14 @@ def execute():
 
 
 def test(check_dir):
+    phpunit_bin = get_value('phpunit-bin')
     phpunit_xml = get_value('project-dir')+get_value('phpunit-xml')
     phpunit_junit_xml = check_dir+'phpunit.xml'
 
     print('>>> phpunit.xml configuration: '+phpunit_xml)
     print('>>> JUnit phpunit.xml log: '+phpunit_xml)
 
-    return 'bin/phpunit --configuration '+phpunit_xml+' --debug --log-junit '+phpunit_junit_xml
+    return phpunit_bin+' --configuration '+phpunit_xml+' --debug --log-junit '+phpunit_junit_xml
 
 
 def coverage(check_dir):
