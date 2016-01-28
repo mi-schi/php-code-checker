@@ -1,10 +1,10 @@
 import os
 from app.configuration import get_value
-from app.helper import php, get_dirs
+from app.helper import output_start, php, get_dirs, output_error
 
 
 def execute():
-    print('--- phpmd ---')
+    output_start('phpmd')
 
     dirs = get_dirs()
     phpmd_xml = dirs['project']+get_value('phpmd-xml')
@@ -24,4 +24,4 @@ def execute():
     code = php('phpmd', dirs['scan']+' xml '+phpmd_xml+' --reportfile '+check_dir+'pmd.xml '+excludes)
 
     if code == 1:
-        raise SystemExit('There was a error/exception while executing phpmd.')
+        output_error('There was a error/exception while executing phpmd.')

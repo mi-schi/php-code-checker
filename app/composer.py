@@ -1,6 +1,6 @@
 import os
 from app.configuration import get_value
-from app.helper import php
+from app.helper import php, output_error
 
 
 def initialization():
@@ -28,7 +28,7 @@ def update():
 def project_installation():
     code = php('composer', 'install --optimize-autoloader')
     if code != 0:
-        raise SystemExit('The composer install command for the project failed with the code '+str(code))
+        output_error('The composer install command for the project failed with the code '+str(code))
 
 
 def composer(arguments):

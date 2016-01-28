@@ -1,6 +1,21 @@
 import os
 import shutil
 from app import composer, configuration, downloader
+import sys
+
+
+class Unbuffered(object):
+    def __init__(self, stream):
+        self.stream = stream
+
+    def write(self, data):
+        self.stream.write(data)
+        self.stream.flush()
+
+    def __getattr__(self, attr):
+        return getattr(self.stream, attr)
+
+sys.stdout = Unbuffered(sys.stdout)
 
 
 def run(project_dir):

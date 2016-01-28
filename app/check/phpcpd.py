@@ -1,9 +1,9 @@
 from app.configuration import get_value
-from app.helper import php, get_dirs
+from app.helper import output_start, php, get_dirs
 
 
 def execute():
-    print('--- phpcpd ---')
+    output_start('phpcpd')
 
     dirs = get_dirs()
     check_dir = get_value('check-dir')

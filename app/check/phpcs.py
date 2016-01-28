@@ -1,10 +1,10 @@
 import os
 from app.configuration import get_value
-from app.helper import php, get_dirs
+from app.helper import output_start, php, get_dirs, output_error
 
 
 def execute():
-    print('--- phpcs ---')
+    output_start('phpcs')
 
     dirs = get_dirs()
     phpcs_standard = dirs['project']+get_value('phpcs-standard')
@@ -28,4 +28,4 @@ def execute():
     code = php('phpcs', '--standard='+phpcs_standard+' --extensions=php --report-checkstyle='+check_dir+'checkstyle.xml '+excludes+' '+dirs['scan'])
 
     if code == 512:
-        raise SystemExit('There was a error/exception while executing phpcs.')
+        output_error('There was a error/exception while executing phpcs.')

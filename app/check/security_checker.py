@@ -1,9 +1,9 @@
 from app.configuration import get_value
-from app.helper import php
+from app.helper import output_start, php, output_error
 
 
 def execute():
-    print('--- security-checker ---')
+    output_start('security-checker')
 
     composer_lock = get_value('project-dir')+'composer.lock'
     print('>>> composer.lock: '+composer_lock)
@@ -11,4 +11,4 @@ def execute():
     code = php('security-checker.phar', 'security:check '+composer_lock)
 
     if code != 0:
-        raise SystemExit('You have a security issue with your composer.lock')
+        output_error('You have a security issue with your composer.lock')

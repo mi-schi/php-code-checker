@@ -3,6 +3,13 @@ import sys
 from app.configuration import get_value
 
 
+def output_start(message):
+    print('')
+    print('-------------')
+    print(message)
+    print('-------------')
+
+
 def php(command, arguments):
     project_dir = get_value('project-dir')
     bin_dir = get_value('bin-dir')
@@ -17,9 +24,20 @@ def php(command, arguments):
     return os.system(command)
 
 
+def output_error(message):
+    print('')
+    print('!!!!!!!! - ERROR - !!!!!!!!')
+    print('')
+    print(message)
+    print('')
+    print('!!!!!!!! - ERROR - !!!!!!!!')
+    print('')
+    raise SystemExit()
+
+
 def get_mode():
     if len(sys.argv) < 2:
-        raise SystemExit('You have to set a mode as first argument. Possible modes are all, check, metric or coverage.')
+        output_error('You have to set a mode as first argument. Possible modes are all, check, metric or coverage.')
 
     return sys.argv[1]
 

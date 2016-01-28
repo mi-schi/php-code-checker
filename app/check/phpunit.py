@@ -1,9 +1,9 @@
 from app.configuration import get_value
-from app.helper import php
+from app.helper import output_start, php, output_error
 
 
 def execute():
-    print('--- phpunit ---')
+    output_start('phpunit')
 
     check_dir = get_value('check-dir')
     argument = get_test_argument(check_dir)
@@ -14,7 +14,7 @@ def execute():
     code = php('phpunit', argument)
 
     if code != 0:
-        raise SystemExit('Some tests failed.')
+        output_error('Some tests failed.')
 
 
 def get_test_argument(check_dir):
