@@ -32,7 +32,7 @@ def output_error(message):
     print('')
     print('!!!!!!!! - ERROR - !!!!!!!!')
     print('')
-    raise SystemExit()
+    sys.exit(1)
 
 
 def get_mode():
