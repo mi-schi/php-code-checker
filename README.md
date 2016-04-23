@@ -20,7 +20,7 @@ and create metrics with
 * [pdepend](https://github.com/pdepend/pdepend)
 
 
-This scripts is a better alternative to configure ant on your jenkins. The python scripts are more flexible and can also be used on your local dev machine. You can define all settings in the `composer.json` in your project, but you don't have to. The scripts also supports exclusion of multiple folders.
+This script is a better alternative to configure ant on your jenkins. The python script is more flexible and can also be used on your local dev machine. You can define all settings in the `composer.json` in your project, but you don't have to. The scripts also supports exclusion of multiple folders.
 
 
 The scripts are tested with `Python 2.6` and `Python 3.5`.
@@ -37,7 +37,7 @@ Via composer:
 
 ## Usage
 
-Use python to execute the scripts in the project folder:
+Use python to execute the script in the project folder:
 
     checker.py all
     checker.py check
