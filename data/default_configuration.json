@@ -4,7 +4,7 @@
       "php": "php",
       "scan-dir": "",
       "bin-dir": "vendor/bin",
-      "exclude-dirs": ["vendor", ".idea", ".git"],
+      "exclude-dirs": ["vendor", ".idea", ".git", "build"],
       "forbidden-methods": ["var_dump(", "die(", "exit(", "print_r("],
       "coverfish-output-level": "1",
       "phpunit-xml": "phpunit.xml",
